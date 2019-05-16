@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpellBankSearchComponent } from './spell-bank-search.component';
+import { OverviewComponentComponent } from './overview-component.component';
 
-describe('SpellBankSearchComponent', () => {
-  let component: SpellBankSearchComponent;
-  let fixture: ComponentFixture<SpellBankSearchComponent>;
+describe('OverviewComponentComponent', () => {
+  let component: OverviewComponentComponent;
+  let fixture: ComponentFixture<OverviewComponentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpellBankSearchComponent ]
+      declarations: [ OverviewComponentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpellBankSearchComponent);
+    fixture = TestBed.createComponent(OverviewComponentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

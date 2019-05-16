@@ -1,3 +1,11 @@
-<p>
-  spell-bank-external works!
-</p>
+<div>
+<h3 class="bank-header">Spell Bank</h3>
+  <ul>
+    <li>
+      <a *ngFor = "let spell of spellApi" href="{{ spell.spellurl }}"> 
+        <li>
+          {{ spell.spell }}</a>
+    </li>
+  </ul>
+</div>
+
