@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const apiUrl = 'http://www.dnd5eapi.co/api/spells';
-
 interface Spells {
   name: string;
   url: string;
 }
+
+const apiUrl = 'http://www.dnd5eapi.co/api/spells';
 
 @Component({
   selector: 'app-spell-bank-external',
@@ -16,16 +16,19 @@ interface Spells {
 
 export class SpellBankExternalComponent implements OnInit {
 
-  spellApi = [
-    {spell: 'Acid Arrow', spellurl: 'http://www.dnd5eapi.co/api/spells/1'},
-    {spell: 'Acid Splash', spellurl: 'http://www.dnd5eapi.co/api/spells/2'},
-    {spell: 'Aid', spellurl: 'http://www.dnd5eapi.co/api/spells/3'},
-    {spell: 'Alarm', spellurl: 'http://www.dnd5eapi.co/api/spells/4'},
-  ];
+  spellApi: Spells[] = [];
 
-  constructor() { }
+  constructor(http: HttpClient) {
+    http
+      .get<Spells[]>(apiUrl)
+      .subscribe(listOfSpells => {
+        console.log(listOfSpells);
+        this.spellApi = listOfSpells.results;
+      });
+   }
 
   ngOnInit() {
+
   }
 
 }

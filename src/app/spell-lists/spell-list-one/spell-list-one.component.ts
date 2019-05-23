@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+interface Spells {
+  name: string;
+  url: string;
+  email: string;
+}
+
+const apiUrl = 'http://www.dnd5eapi.co/api/spells';
 
 @Component({
   selector: 'app-spell-list-one',
@@ -7,9 +16,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpellListOneComponent implements OnInit {
 
-  constructor() { }
+  spellApi: Spells[] = [];
 
-  ngOnInit() {
-  }
-
+  constructor(http: HttpClient) {
+     http
+      .get<Spells[]>(apiUrl)
+      .subscribe(listOfSpells => {
+          console.log(listOfSpells);
+          this.spellApi = listOfSpells;
+       });
 }
+    ngOnInit() {
+    }
+  }

@@ -1,11 +1,10 @@
-<div>
-<h3 class="bank-header">Spell Bank</h3>
-  <ul>
-    <li>
-      <a *ngFor = "let spell of spellApi" href="{{ spell.spellurl }}"> 
-        <li>
-          {{ spell.spell }}</a>
-    </li>
-  </ul>
+<h3>Spell Bank</h3>
+<div class="container text-center">
+  <table class="table table-bordered">
+    <tbody class="spell-list-container">
+      <tr class= "spell-list-item" *ngFor="let spell of spellApi">
+        {{ spell.name }}
+     </tr>
+    </tbody>
+  </table>
 </div>
-
