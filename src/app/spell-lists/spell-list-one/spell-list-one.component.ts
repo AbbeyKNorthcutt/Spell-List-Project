@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 interface Spells {
+  count: number;
+  results: Result[];
+}
+
+interface Result {
   name: string;
   url: string;
-  email: string;
 }
 
 const apiUrl = 'http://www.dnd5eapi.co/api/spells';
@@ -16,15 +20,15 @@ const apiUrl = 'http://www.dnd5eapi.co/api/spells';
 })
 export class SpellListOneComponent implements OnInit {
 
-  spellApi: Spells[] = [];
+  spellApi: Result[];
 
   constructor(http: HttpClient) {
-     http
-      .get<Spells[]>(apiUrl)
+    http
+      .get<Spells>(apiUrl)
       .subscribe(listOfSpells => {
-          console.log(listOfSpells);
-          this.spellApi = listOfSpells;
-       });
+        console.log(listOfSpells);
+        this.spellApi = listOfSpells.results;
+      });
 }
     ngOnInit() {
     }

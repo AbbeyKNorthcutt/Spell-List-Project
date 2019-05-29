@@ -1,4 +1,5 @@
-.container {
+#spell-bank-container{
     overflow: scroll;
-    height: 200px;
+    height: 500px;
+    text-align: left;
 }
