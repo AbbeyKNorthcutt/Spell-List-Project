@@ -1,5 +1,10 @@
 #spell-bank-container{
     overflow: scroll;
-    height: 500px;
+    height: 400px;
     text-align: left;
+}
+
+#spell-bank-checkbox {
+    height: 20px;
+    color: blue;
 }

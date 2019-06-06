@@ -1,15 +1,24 @@
 <h3>Spell Bank</h3>
   <div class="accordion" id="accordion" id="spell-bank-container">
     <div class="card" [attr.id]="'accordion_' + i" *ngFor="let spell of spellApi; let i = index;">
-        <div class="panel panel-default" >
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">{{spell.name}}</a>
-                </h4>
+                    <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">
+                      {{spell.name}} 
+                    </a>
+                </h4> 
             </div>
-            <div [attr.id]="'collapseOne_' + i" class="panel-collapse in">
+            <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
                 <div class="panel-body">
-                  {{spell.desc}}
+                  {{spell.desc}} 
+                  <p>
+                      <a href={{spell.url}}>More Information</a>
+                  </p>
+                  <div class="form-check">
+                        <input (click)="onSelect($event)" type="checkbox" class="form-check-input" id="spellSelect">
+                        <label class="form-check-label" for="spellSelect">Select Spell</label>
+                      </div>
                 </div>
             </div>
         </div>
